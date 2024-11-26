@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/app/src/lodepng/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+/app/src/lodepng/lodepng.h
+iostream
+-
+lodepng.h
+/app/src/lodepng/lodepng.h
+
+/app/src/rayimage/Image.cpp
+iostream
+-
+cmath
+-
+Image.hpp
+/app/src/rayimage/Image.hpp
+../lodepng/lodepng.h
+/app/src/lodepng/lodepng.h
+
+/app/src/rayimage/Image.hpp
+iostream
+-
+../raymath/Color.hpp
+/app/src/raymath/Color.hpp
+vector
+-
+
+/app/src/raymath/Color.hpp
+iostream
+-
+

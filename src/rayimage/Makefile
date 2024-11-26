@@ -91,14 +91,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /app/CMakeFiles /app/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /app && $(CMAKE_COMMAND) -E cmake_progress_start /app/CMakeFiles /app/src/rayimage/CMakeFiles/progress.marks
+	cd /app && $(MAKE) -f CMakeFiles/Makefile2 src/rayimage/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /app/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /app && $(MAKE) -f CMakeFiles/Makefile2 src/rayimage/clean
 .PHONY : clean
 
 # The main clean target
@@ -108,110 +108,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /app && $(MAKE) -f CMakeFiles/Makefile2 src/rayimage/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /app && $(MAKE) -f CMakeFiles/Makefile2 src/rayimage/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /app && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named raytracer
+# Convenience name for target.
+src/rayimage/CMakeFiles/rayimage.dir/rule:
+	cd /app && $(MAKE) -f CMakeFiles/Makefile2 src/rayimage/CMakeFiles/rayimage.dir/rule
+.PHONY : src/rayimage/CMakeFiles/rayimage.dir/rule
 
-# Build rule for target.
-raytracer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 raytracer
-.PHONY : raytracer
+# Convenience name for target.
+rayimage: src/rayimage/CMakeFiles/rayimage.dir/rule
 
-# fast build rule for target.
-raytracer/fast:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/build
-.PHONY : raytracer/fast
-
-#=============================================================================
-# Target rules for targets named raymath
-
-# Build rule for target.
-raymath: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 raymath
-.PHONY : raymath
-
-# fast build rule for target.
-raymath/fast:
-	$(MAKE) -f src/raymath/CMakeFiles/raymath.dir/build.make src/raymath/CMakeFiles/raymath.dir/build
-.PHONY : raymath/fast
-
-#=============================================================================
-# Target rules for targets named rayimage
-
-# Build rule for target.
-rayimage: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rayimage
 .PHONY : rayimage
 
 # fast build rule for target.
 rayimage/fast:
-	$(MAKE) -f src/rayimage/CMakeFiles/rayimage.dir/build.make src/rayimage/CMakeFiles/rayimage.dir/build
+	cd /app && $(MAKE) -f src/rayimage/CMakeFiles/rayimage.dir/build.make src/rayimage/CMakeFiles/rayimage.dir/build
 .PHONY : rayimage/fast
 
-#=============================================================================
-# Target rules for targets named rayscene
+Image.o: Image.cpp.o
 
-# Build rule for target.
-rayscene: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rayscene
-.PHONY : rayscene
-
-# fast build rule for target.
-rayscene/fast:
-	$(MAKE) -f src/rayscene/CMakeFiles/rayscene.dir/build.make src/rayscene/CMakeFiles/rayscene.dir/build
-.PHONY : rayscene/fast
-
-#=============================================================================
-# Target rules for targets named lodepng
-
-# Build rule for target.
-lodepng: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 lodepng
-.PHONY : lodepng
-
-# fast build rule for target.
-lodepng/fast:
-	$(MAKE) -f src/lodepng/CMakeFiles/lodepng.dir/build.make src/lodepng/CMakeFiles/lodepng.dir/build
-.PHONY : lodepng/fast
-
-main.o: main.cpp.o
-
-.PHONY : main.o
+.PHONY : Image.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.o
-.PHONY : main.cpp.o
+Image.cpp.o:
+	cd /app && $(MAKE) -f src/rayimage/CMakeFiles/rayimage.dir/build.make src/rayimage/CMakeFiles/rayimage.dir/Image.cpp.o
+.PHONY : Image.cpp.o
 
-main.i: main.cpp.i
+Image.i: Image.cpp.i
 
-.PHONY : main.i
+.PHONY : Image.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.i
-.PHONY : main.cpp.i
+Image.cpp.i:
+	cd /app && $(MAKE) -f src/rayimage/CMakeFiles/rayimage.dir/build.make src/rayimage/CMakeFiles/rayimage.dir/Image.cpp.i
+.PHONY : Image.cpp.i
 
-main.s: main.cpp.s
+Image.s: Image.cpp.s
 
-.PHONY : main.s
+.PHONY : Image.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/raytracer.dir/build.make CMakeFiles/raytracer.dir/main.cpp.s
-.PHONY : main.cpp.s
+Image.cpp.s:
+	cd /app && $(MAKE) -f src/rayimage/CMakeFiles/rayimage.dir/build.make src/rayimage/CMakeFiles/rayimage.dir/Image.cpp.s
+.PHONY : Image.cpp.s
 
 # Help Target
 help:
@@ -222,14 +172,10 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
-	@echo "... raytracer"
-	@echo "... raymath"
 	@echo "... rayimage"
-	@echo "... rayscene"
-	@echo "... lodepng"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... Image.o"
+	@echo "... Image.i"
+	@echo "... Image.s"
 .PHONY : help
 
 
@@ -241,6 +187,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /app && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

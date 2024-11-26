@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/app/src/raymath/Vector3.cpp
+iostream
+-
+cmath
+-
+Vector3.hpp
+/app/src/raymath/Vector3.hpp
+
+/app/src/raymath/Vector3.hpp
+iostream
+-
+

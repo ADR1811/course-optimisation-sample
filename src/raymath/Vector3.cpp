@@ -17,9 +17,9 @@ Vector3::~Vector3()
 const Vector3 Vector3::operator+(Vector3 const &vec) const
 {
   Vector3 c;
-  c.x = x + vec.x;
-  c.y = y + vec.y;
-  c.z = z + vec.z;
+  // c.x = x + vec.x;
+  // c.y = y + vec.y;
+  // c.z = z + vec.z;
   return c;
 }
 

@@ -1,0 +1,134 @@
+Start testing: Nov 26 10:44 CET
+----------------------------------------------------------
+1/6 Testing: render_valid_scene
+1/6 Test: render_valid_scene
+Command: "/app/raytracer" "./scenes/two-spheres-on-plane.json"
+Directory: /app
+"render_valid_scene" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+
+*********************************
+*** Kevin's Awesome Raytracer ***
+*********************************
+
+Rendering 1920x1080 pixels...
+Done.
+Total time: 1.061 seconds.
+Writing file: image.png
+<end of output>
+Test time =   1.21 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[Writing file: image.png]
+"render_valid_scene" end time: Nov 26 10:44 CET
+"render_valid_scene" time elapsed: 00:00:01
+----------------------------------------------------------
+
+2/6 Testing: verify_valid_scene_hash
+2/6 Test: verify_valid_scene_hash
+Command: "/usr/bin/bash" "-c" "raytracer ./scenes/two-spheres-on-plane.json | sha256sum ./image.png | cut -d' ' -f1 | grep -q '^3640a8a6d6c6ac1916c87332f6db33ce1d494fa1ac7c4745cab6ba2f26b0f535$'"
+Directory: /app
+"verify_valid_scene_hash" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+/usr/bin/bash: raytracer: command not found
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"verify_valid_scene_hash" end time: Nov 26 10:44 CET
+"verify_valid_scene_hash" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/6 Testing: run_with_wrong_path
+3/6 Test: run_with_wrong_path
+Command: "/app/raytracer" "./scenes/nonexistent-file.json"
+Directory: /app
+"run_with_wrong_path" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+
+*********************************
+*** Kevin's Awesome Raytracer ***
+*********************************
+
+Scene file not found at path: ./scenes/nonexistent-file.json
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[Scene file not found at path: ./scenes/nonexistent-file.json]
+"run_with_wrong_path" end time: Nov 26 10:44 CET
+"run_with_wrong_path" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/6 Testing: run_with_no_scene_file
+4/6 Test: run_with_no_scene_file
+Command: "/app/raytracer"
+Directory: /app
+"run_with_no_scene_file" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+
+*********************************
+*** Kevin's Awesome Raytracer ***
+*********************************
+
+[ERROR] Please a path your scene file (.json)
+
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"run_with_no_scene_file" end time: Nov 26 10:44 CET
+"run_with_no_scene_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/6 Testing: run_with_name
+5/6 Test: run_with_name
+Command: "/app/raytracer" "./scenes/two-spheres-on-plane.json" "test.png"
+Directory: /app
+"run_with_name" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+
+*********************************
+*** Kevin's Awesome Raytracer ***
+*********************************
+
+Rendering 1920x1080 pixels...
+Done.
+Total time: 1.027 seconds.
+Writing file: test.png
+<end of output>
+Test time =   1.17 sec
+----------------------------------------------------------
+Test Pass Reason:
+Required regular expression found. Regex=[Writing file: test.png]
+"run_with_name" end time: Nov 26 10:44 CET
+"run_with_name" time elapsed: 00:00:01
+----------------------------------------------------------
+
+6/6 Testing: render_invalid_scene
+6/6 Test: render_invalid_scene
+Command: "/app/raytracer" "./scenes/invalid-scene.json"
+Directory: /app
+"render_invalid_scene" start time: Nov 26 10:44 CET
+Output:
+----------------------------------------------------------
+
+*********************************
+*** Kevin's Awesome Raytracer ***
+*********************************
+
+Scene file not found at path: ./scenes/invalid-scene.json
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Failed.
+"render_invalid_scene" end time: Nov 26 10:44 CET
+"render_invalid_scene" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 26 10:44 CET
